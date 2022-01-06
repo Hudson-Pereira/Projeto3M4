@@ -9,13 +9,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-  @Get('lista')
-  getLista(): string[] {
-    return this.appService.getLista();
-  }
-
-  @Get('listaobj')
-  getListaObj(): object[] {
-    return this.appService.getLista2();
-  }
 }
