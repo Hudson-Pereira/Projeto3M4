@@ -18,7 +18,8 @@ export class UsuarioService {
       createdUser.senha = undefined;
       return createdUser;
     } catch (error) {
-      throw new HttpException('E-mail já cadastrado.', HttpStatus.BAD_REQUEST);
+      console.log(error)
+      // throw new HttpException('E-mail já cadastrado.', HttpStatus.BAD_REQUEST);
     }
     
   //pegando a senha e passando pelo bcrypt embaralhando 10x  
