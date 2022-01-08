@@ -19,7 +19,7 @@ export class UsuarioService {
       return createdUser;
     } catch (error) {
       console.log(error)
-      // throw new HttpException('E-mail já cadastrado.', HttpStatus.BAD_REQUEST);
+      throw new HttpException('Verifique os dados e tente novamente.', HttpStatus.BAD_REQUEST);
     }
     
   //pegando a senha e passando pelo bcrypt embaralhando 10x  

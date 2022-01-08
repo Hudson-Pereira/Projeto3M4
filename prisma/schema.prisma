@@ -15,7 +15,7 @@ model Usuario {
   nome        String 
   imagem      String
   bio         String
-  nasc        DateTime
+  nasc        Int
   email       String        @unique
   senha       String
   seguidores  Seguidores[]
