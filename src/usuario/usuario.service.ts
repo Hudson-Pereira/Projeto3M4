@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateUsuarioDto } from './dto/create-usuario.dto';
+import { LoginDto } from './../auth/dto/login.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { Usuario, Prisma } from '@prisma/client';
@@ -24,8 +24,8 @@ export class UsuarioService {
   //pegando a senha e passando pelo bcrypt embaralhando 10x  
     // return await this.prisma.usuario.create({ data });
   }
-
-  async findByLogin(login: CreateUsuarioDto): Promise<Usuario>{ //criando login
+          //se der erro voltar para CreateUserDto
+  async findByLogin(login: LoginDto): Promise<Usuario>{ //criando login
     const user = await this.prisma.usuario.findFirst({
       where: {
         email: login.email,

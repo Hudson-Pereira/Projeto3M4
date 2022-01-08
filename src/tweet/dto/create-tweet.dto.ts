@@ -6,14 +6,6 @@ export class CreateTweetDto {
   texto: string;
 
   @IsNotEmpty()
-  @IsString()
-  emoji: string;
-
-  @IsNotEmpty()
   @IsInt()
-  curtidas: number;
-
-  @IsNotEmpty()
-  @IsInt()
-  usuarioid: number;
+  usuarioid: number; 
 }

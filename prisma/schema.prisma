@@ -25,24 +25,41 @@ model Usuario {
   modify_at   DateTime      @default(now())
 }
 
+model Categoria {
+  id          Int            @default(autoincrement()) @id @unique
+  nome        String
+  created_at  DateTime       @default(now())
+  tweets      CategoriaDoTweet[]
+}
+
 model Tweet {
   id          Int            @default(autoincrement()) @id @unique
   texto       String
-  emoji       String
-  data_post   DateTime       @default(now())
-  curtidas    Int
+  created_at  DateTime       @default(now())
   autor       Usuario        @relation(fields: [usuarioid], references: [id])
   usuarioid   Int
+  categoria   CategoriaDoTweet[]
+}
+
+model CategoriaDoTweet {
+  tweet     Tweet         @relation(fields: [tweetid], references: [id])
+  tweetid   Int
+  categoria Categoria     @relation(fields: [categoriaid], references: [id])
+  categoriaid Int 
+
+  @@id([categoriaid, tweetid])
 }
 
 model Seguindo {
   id          Int           @default(autoincrement()) @id @unique
   usuarioid   Usuario       @relation(fields: [idSeguindo], references: [id])
   idSeguindo  Int
+  created_at  DateTime       @default(now())
 }
 
 model Seguidores {
   id          Int           @default(autoincrement()) @id @unique
   usuarioid   Usuario       @relation(fields: [idSeguidor], references: [id])
   idSeguidor  Int
+  created_at  DateTime       @default(now())
 }
