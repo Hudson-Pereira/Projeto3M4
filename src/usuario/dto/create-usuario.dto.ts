@@ -26,7 +26,6 @@ export class CreateUsuarioDto {
   nasc: number;
 
   @IsNotEmpty()
-  @IsString()
   @IsEmail()
   email: string;
 
