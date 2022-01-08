@@ -23,7 +23,7 @@ export class CreateUsuarioDto {
  
   @IsNotEmpty()
   @Transform(nasc => moment(nasc).format('DD/MM/YY'))
-  nasc: number;
+  nasc: Date;
 
   @IsNotEmpty()
   @IsEmail()
