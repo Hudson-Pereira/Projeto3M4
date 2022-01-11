@@ -17,18 +17,18 @@ export class FavoritosController {
     return this.favoritosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.favoritosService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.favoritosService.findOne(+id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFavoritoDto: UpdateFavoritoDto) {
-    return this.favoritosService.update(+id, updateFavoritoDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateFavoritoDto: UpdateFavoritoDto) {
+  //   return this.favoritosService.update(+id, updateFavoritoDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.favoritosService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.favoritosService.remove(+id);
+  // }
 }

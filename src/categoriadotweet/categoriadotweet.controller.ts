@@ -17,18 +17,18 @@ export class CategoriadotweetController {
     return this.categoriadotweetService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.categoriadotweetService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.categoriadotweetService.findOne(+id);
+  // }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoriadotweetDto: UpdateCategoriadotweetDto) {
-    return this.categoriadotweetService.update(+id, updateCategoriadotweetDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateCategoriadotweetDto: UpdateCategoriadotweetDto) {
+  //   return this.categoriadotweetService.update(+id, updateCategoriadotweetDto);
+  // }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.categoriadotweetService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.categoriadotweetService.remove(+id);
+  // }
 }

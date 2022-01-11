@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
+import { Favoritos, Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateFavoritoDto } from './dto/create-favorito.dto';
 import { UpdateFavoritoDto } from './dto/update-favorito.dto';
 
 @Injectable()
 export class FavoritosService {
-  create(createFavoritoDto: CreateFavoritoDto) {
-    return 'This action adds a new favorito';
+  constructor(private prisma: PrismaService) {}
+  
+  async create(data: Prisma.FavoritosUncheckedCreateInput): Promise<Favoritos> {
+    return await this.prisma.favoritos.create({data});
   }
 
-  findAll() {
-    return `This action returns all favoritos`;
+  async findAll(): Promise<Favoritos[]> {
+    return await this.prisma.favoritos.findMany();
   }
+//verificar como fazer o crud da many-to-many
+  // async findOne(id: number): Promise<Favoritos> {
+  //   return await this.prisma.favoritos.findUnique({where: {id}});
+  // }
 
-  findOne(id: number) {
-    return `This action returns a #${id} favorito`;
-  }
+  // async update(id: number, data: UpdateFavoritoDto): Promise<Favoritos> {
+  //   return await this.prisma.favoritos.update({data, where: {id}});
+  // }
 
-  update(id: number, updateFavoritoDto: UpdateFavoritoDto) {
-    return `This action updates a #${id} favorito`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} favorito`;
-  }
+  // async remove(id: number): Promise<Favoritos> {
+  //   return await this.prisma.favoritos.delete({where: {id}});
+  // }
 }

@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
+import { CategoriaDoTweet } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCategoriadotweetDto } from './dto/create-categoriadotweet.dto';
 import { UpdateCategoriadotweetDto } from './dto/update-categoriadotweet.dto';
 
 @Injectable()
 export class CategoriadotweetService {
-  create(createCategoriadotweetDto: CreateCategoriadotweetDto) {
-    return 'This action adds a new categoriadotweet';
+  constructor(private prisma: PrismaService) {}
+
+  async create(data: CreateCategoriadotweetDto): Promise<CategoriaDoTweet> {
+    return await this.prisma.categoriaDoTweet.create({data});
   }
 
-  findAll() {
-    return `This action returns all categoriadotweet`;
+  async findAll(): Promise<CategoriaDoTweet[]> {
+    return await this.prisma.categoriaDoTweet.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} categoriadotweet`;
-  }
+  // async findOne(id: number): Promise<CategoriaDoTweet> {
+  //   return await this.prisma.categoriaDoTweet.findUnique({where: {id}});
+  // }
 
-  update(id: number, updateCategoriadotweetDto: UpdateCategoriadotweetDto) {
-    return `This action updates a #${id} categoriadotweet`;
-  }
+  // async update(id: number, data: UpdateCategoriadotweetDto): Promise<CategoriaDoTweet> {
+  //   return await this.prisma.categoriaDoTweet.update({data, where: {id}});
+  // }
 
-  remove(id: number) {
-    return `This action removes a #${id} categoriadotweet`;
-  }
+  // async remove(id: number): Promise<CategoriaDoTweet> {
+  //   return await this.prisma.categoriaDoTweet.delete({where: {id}});
+  // }
 }

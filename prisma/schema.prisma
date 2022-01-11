@@ -21,6 +21,7 @@ model Usuario {
   seguidores  Seguidores[]
   seguindo    Seguindo[]
   tweets      Tweet[]
+  favoritos   Favoritos[]
   created_at  DateTime      @default(now())
   modify_at   DateTime      @default(now())
 }
@@ -39,15 +40,25 @@ model Tweet {
   autor       Usuario        @relation(fields: [usuarioid], references: [id])
   usuarioid   Int
   categoria   CategoriaDoTweet[]
+  favoritos   Favoritos[]
 }
 
 model CategoriaDoTweet {
   tweet     Tweet         @relation(fields: [tweetid], references: [id])
   tweetid   Int
   categoria Categoria     @relation(fields: [categoriaid], references: [id])
-  categoriaid Int 
+  categoriaid Int
 
   @@id([categoriaid, tweetid])
+}
+
+model Favoritos {
+   tweet     Tweet         @relation(fields: [tweetid], references: [id])
+   tweetid   Int   
+   usuario     Usuario       @relation(fields: [usuarioid], references: [id])
+   usuarioid   Int
+
+   @@id([usuarioid, tweetid])
 }
 
 model Seguindo {
