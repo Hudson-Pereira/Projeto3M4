@@ -65,8 +65,8 @@ model Favoritos {
 
 model Seguindo {
   id          Int           @default(autoincrement()) @id @unique
-  usuarioid   Usuario       @relation(fields: [idseguindo], references: [id])
-  idseguindo  Int
+  usuarioid   Usuario       @relation(fields: [idSeguindo], references: [id])
+  idSeguindo  Int
   created_at  DateTime       @default(now())
 }
 
