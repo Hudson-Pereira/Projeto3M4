@@ -14,7 +14,7 @@ A rota GET /tweet e /tweet/id estão com acesso livre para consulta. As rotas PO
 
 As rotas GET /seguidores, /seguidores/id e GET /seguindo, /seguindo/id estão liberadas para consultas. As rotas POST /seguidores e /seguindo, PATCH /seguidores/id e /seguindo/id e DELETE /seguidores/id e /seguindo/id estão autenticadas com "@UseGuards(AuthGuard('jwt'))", onde somente serão acessadas com usuários válidados pelo token de acesso gerado pelo JWT para alteração de informações e deletar informações.
 
-As rotas POST /categoria, POST /favoritos e POST /categoriadotweet estão liberadas de autenticação. 
+As rotas POST /categoria, POST /favoritos e POST /categoriadotweet estão liberadas de autenticação. Sendo utilizadas cadastrando o ID do tweet com o ID do usuário para favoritos e ID do tweet e ID da categoria para categoriadotweet.
 
 A rota POST /categoria é utilizada antes de criar qualquer coisa para cadastrar as categorias que os tweets irão pertencer.
 
