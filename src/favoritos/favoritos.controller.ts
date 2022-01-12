@@ -3,7 +3,9 @@ import { FavoritosService } from './favoritos.service';
 import { CreateFavoritoDto } from './dto/create-favorito.dto';
 import { UpdateFavoritoDto } from './dto/update-favorito.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('favoritos')
 @Controller('favoritos')
 export class FavoritosController {
   constructor(private readonly favoritosService: FavoritosService) {}

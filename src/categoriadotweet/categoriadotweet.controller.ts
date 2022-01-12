@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CategoriadotweetService } from './categoriadotweet.service';
 import { CreateCategoriadotweetDto } from './dto/create-categoriadotweet.dto';
 import { UpdateCategoriadotweetDto } from './dto/update-categoriadotweet.dto';
 
+@ApiTags('categoriadotweet')
 @Controller('categoriadotweet')
 export class CategoriadotweetController {
   constructor(private readonly categoriadotweetService: CategoriadotweetService) {}

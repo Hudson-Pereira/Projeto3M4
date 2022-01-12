@@ -14,7 +14,7 @@ model Usuario {
   id          Int           @default(autoincrement()) @id @unique
   nome        String
   sobrenome   String
-  username    String 
+  username    String        @unique
   imagem      String
   bio         String
   nasc        String
