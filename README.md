@@ -20,6 +20,6 @@ A rota POST /categoria é utilizada antes de criar qualquer coisa para cadastrar
 
 A rota POST /favoritos e POST /categoriadotweet são criadas após a criação de ao menos um tweet, sendo utilizadas para favoritar um tweet a um usuário e categorizar o tipo do tweet, sucessivamente.
 
-Mais informações de uso, favor conferir no SWAGGER (apenas a rota usuário está com descrição no swagger, para efeito de aprendizado, foi utilizado recurso apenas nessa rota).
+Mais informações de uso, favor conferir no SWAGGER (apenas a rota POST /usuário está com descrição no swagger, para efeito de aprendizado, foi utilizado recurso apenas nessa rota).
 
 Projeto feito deploy no Heroku, acesso pelo link: https://projeto3m4.herokuapp.com/
