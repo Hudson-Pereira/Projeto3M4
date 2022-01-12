@@ -72,7 +72,7 @@ model Seguindo {
 
 model Seguidores {
   id          Int           @default(autoincrement()) @id @unique
-  usuarioid   Usuario       @relation(fields: [idsegue], references: [id])
-  idsegue  Int
+  usuarioid   Usuario       @relation(fields: [idseguidor], references: [id])
+  idseguidor  Int
   created_at  DateTime       @default(now())
 }
