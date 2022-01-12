@@ -12,7 +12,9 @@ datasource db {
 
 model Usuario {
   id          Int           @default(autoincrement()) @id @unique
-  nome        String 
+  nome        String
+  sobrenome   String
+  username    String 
   imagem      String
   bio         String
   nasc        String

@@ -12,6 +12,14 @@ export class CreateUsuarioDto {
     description: `O nome será utilizado para identificar o usuário.` ,
   })
   nome: string;
+
+  @IsNotEmpty()
+  @IsString()
+  sobrenome: string;
+
+  @IsNotEmpty()
+  @IsString()
+  username: string;
   
   @IsNotEmpty()
   @IsUrl()
