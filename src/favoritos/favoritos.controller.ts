@@ -1,13 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { FavoritosService } from './favoritos.service';
 import { CreateFavoritoDto } from './dto/create-favorito.dto';
 import { UpdateFavoritoDto } from './dto/update-favorito.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('favoritos')
 export class FavoritosController {
   constructor(private readonly favoritosService: FavoritosService) {}
 
   @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createFavoritoDto: CreateFavoritoDto) {
     return this.favoritosService.create(createFavoritoDto);
   }
